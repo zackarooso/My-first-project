@@ -8,13 +8,13 @@
 			margin: 0;
 			padding: 0;
 			background-color: black;
-			font-family: 'Roboto', sans-serif;
+			font-family: 'Futura', sans-serif;
 		}
 
 		h1 {
 			text-align: center;
-			color: red;
-			font-size: 5rem;
+			color: white;
+			font-size: 64pt;
 			margin-top: 5rem;
 			text-shadow: 0 0 10px red;
 		}
@@ -24,13 +24,44 @@
 			margin: auto;
 			max-width: 100%;
 			height: auto;
-			border: black solid 10px;
+			border: black solid 20px;
 		}
 	</style>
-	<link href="https://fonts.googleapis.com/css?family=Orbitron|Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Futura&display=swap" rel="stylesheet">
+	<script>
+		var images = [
+			"Images/A motionless Interdimensional explorer who protects you4_out-1.png",
+			"Images/A helpful message for Elon Musk from A motionless Interdimensional explorer_out-3.png",
+			"Images/A helpful message for Elon Musk from A motionless Interdimensional explorer5_out-3.png",
+			"Images/A helpful message for Elon Musk from A motionless Interdimensional explorer5_out-1.png",
+			"Images/A motionless interdimensional explorer viewing the multiverse2_out-1.png",
+			"Images/A motionless interdimensional explorer viewing Planet Earth3_out-5.png"
+		];
+		var currentImage = 0;
+
+		function updateImage() {
+			var imgElement = document.getElementById("image");
+			imgElement.src = images[currentImage];
+			imgElement.alt = "Image " + (currentImage + 1) + " of " + images.length;
+		}
+
+		window.addEventListener("keydown", function(event) {
+			if (event.code === "ArrowLeft") {
+				currentImage = (currentImage + images.length - 1) % images.length;
+				updateImage();
+			} else if (event.code === "ArrowRight") {
+				currentImage = (currentImage + 1) % images.length;
+				updateImage();
+			}
+		});
+
+		window.addEventListener("load", function() {
+			updateImage();
+		});
+	</script>
 </head>
 <body>
 	<h1>Neurogram</h1>
-	<img src="images/A motionless Interdimensional explorer who protects you4_out-1.png">
+	<img id="image" src="Images/A motionless Interdimensional explorer who protects you4_out-1.png">
 </body>
 </html>
